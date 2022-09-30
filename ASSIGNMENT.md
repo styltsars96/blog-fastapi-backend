@@ -11,7 +11,7 @@ To complete this assignment you will require the following: *... choice*
 * Python >= 3.8 ... **Python 3.10**
 * any Python web framework e.g. Flask, Bottle, CherryPy, Tornado, Django, FastAPI (it's recommended to pick the one you feel most comfortable with) ... **FastAPI** with Uvicorn server
 * any data store for storing the data models and user data e.g. PostgreSQL, MariaDB, MongoDB, Cassandra, CouchDB, Riak, Redis, Memcached (it's recommended to pick the one you feel most comfortable with) ... **PostgreSQL**
-* private GitHub or Bitbucket account and public git repository where you will upload the code ... **[BitBucket](https://bitbucket.org/styltsars96/steliosembedassignment/src/master/)**
+* private GitHub or Bitbucket account and public git repository where you will upload the code ... HERE
 * use RESTful or GraphQL or gRPC (the choice is yours) to implement the APIs ... **RESTful**
 
 ## Functional requirements
