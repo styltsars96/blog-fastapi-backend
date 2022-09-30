@@ -1,0 +1,49 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/${PROJECT_NAME}/
+    env_file:
+      - .env
+    environment:
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_HOST: postgres
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    restart: always
+
+  postgres:
+    image: 'postgres:latest'
+    container_name: "${PROJECT_NAME}_postgres"
+    env_file:
+      - .env
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_DB: ${PROJECT_NAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+
+  pgadmin:
+    container_name: "${PROJECT_NAME}_pgadmin"
+    ports:
+      - ${PGADMIN_PORT}:5454
+    env_file:
+      - .env
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_LISTEN_PORT=${PGADMIN_PORT}
+    image: 'dpage/pgadmin4:latest'
+    depends_on:
+      - postgres
+    links:
+      - 'postgres:pgsql-server'
+    restart: unless-stopped
