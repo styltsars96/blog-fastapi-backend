@@ -41,6 +41,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+### Run other components and application ###
+
 Bring up everything except the main service through docker:
 
 ```bash
