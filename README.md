@@ -22,6 +22,8 @@ docker-compose up -d postgres app --build
 
 Then go to <http://127.0.0.1:8000/docs> to view **OpenAPI docs**!
 
+## Alternative: Run in local virtual environment ##
+
 ### Install python prerequisites on Ubuntu 20.04 LTS ###
 
 ```bash
@@ -38,8 +40,6 @@ curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-
-## Alternative: Run in local virtual environment ##
 
 Bring up everything except the main service through docker:
 
